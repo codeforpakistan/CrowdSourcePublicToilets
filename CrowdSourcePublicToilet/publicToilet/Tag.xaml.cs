@@ -92,6 +92,8 @@ namespace publicToilet
                 Geocoordinate coordinate = position.Coordinate;
                 lll = coordinate.Latitude.ToString();
                 loo = coordinate.Longitude.ToString();
+                tbx_latitude.Text = lll;
+                tbx_longitude.Text = loo;
                 RefreshMyList();
             }
             catch (Exception ex)
@@ -189,7 +191,8 @@ namespace publicToilet
 
                 var todoItem = new TodoItem { Complete = false, Text = "toilet", Town= tbx_town.Text , Near_Famous = tbx_near.Text , Latitude = lll ,Longitude = loo, BabyChange = babych, Disables = dis , Female = fem , Male = mal , Payment = payment , Unisex = unis , WheelChair = wheel };
             InsertTodoItem(todoItem);
-        
+            MessageBox.Show("Toilet has been tagged!");
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
         private void CheckBoxComplete_Checked(object sender, RoutedEventArgs e)

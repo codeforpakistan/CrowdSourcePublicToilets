@@ -22,7 +22,7 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="publicToilet" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -36,7 +36,7 @@
                 <TextBlock Grid.Row="0" Text="Fill the fields below to tag a toilet" TextWrapping="Wrap" Margin="10,50,14,788" Grid.ColumnSpan="2"/>
                 <Button x:Name="ButtonSave" Click="ButtonSave_Click" Margin="157,669,147,157" Grid.ColumnSpan="2" Content="Tag"/>
                 <TextBox Grid.Column="0" x:Name="tbx_town" Text="" Margin="0,114,0,718" Grid.ColumnSpan="2" />
-                <TextBox Grid.Column="0" x:Name="tbx_near" Text="" Margin="0,189,0,643" Grid.ColumnSpan="2" />
+                <TextBox Grid.Column="0" x:Name="tbx_near" Text="" Margin="0,192,0,640" Grid.ColumnSpan="2" />
                 <TextBox Grid.Column="0" x:Name="tbx_latitude" Text="" Margin="0,263,230,569" Grid.ColumnSpan="2" />
                 <TextBox Grid.Column="0" x:Name="tbx_longitude" Text="" Margin="234,264,0,568" Grid.ColumnSpan="2" />
 
@@ -48,7 +48,7 @@
                 <CheckBox x:Name="cx_male" Margin="10,549,9,278" Content="male"/>
                 <CheckBox x:Name="cx_female" Margin="3,479,10,348" Content="female" Grid.Column="1"/>
                 <TextBlock Grid.Row="0" Text="Town:" TextWrapping="Wrap" Margin="10,92,14,788" Grid.ColumnSpan="2"/>
-                <TextBlock Grid.Row="0" Text="Near Stop and Assist" TextWrapping="Wrap" Margin="10,169,14,711" Grid.ColumnSpan="2"/>
+                <TextBlock Grid.Row="0" Text="Near Stop and Assist" TextWrapping="Wrap" Margin="12,170,12,695" Grid.ColumnSpan="2"/>
                 <TextBlock Grid.Row="0" Text="Latitude" TextWrapping="Wrap" Margin="10,246,14,634"/>
                 <TextBlock Grid.Row="0" Text="Longitude" TextWrapping="Wrap" Margin="7,246,11,619" Grid.Column="1"/>
             </Grid>
