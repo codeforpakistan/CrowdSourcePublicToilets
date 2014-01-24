@@ -85,17 +85,9 @@
             </phone:PivotItem>
 
         </phone:Pivot>
-        <Image  HorizontalAlignment="Left" Height="123"  VerticalAlignment="Top" Width="480" Source="cover.PNG" Stretch="UniformToFill"/>
-        <Rectangle HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="480" Opacity="0.845">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="1"/>
-                    <GradientStop Color="#FF073C47"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <TextBlock HorizontalAlignment="Left" Height="36" TextWrapping="Wrap" Text="OpenPublicToilets - LHR" VerticalAlignment="Top" Width="318" Foreground="#FF35DDF7" FontFamily="Segoe WP Semibold" FontSize="24" Margin="4,0,0,0"/>
-
+        <Rectangle  HorizontalAlignment="Left" Height="123"  VerticalAlignment="Top" Width="480"  Stretch="UniformToFill" Fill="#FF009496"/>
+        <Image  HorizontalAlignment="Left" Height="119"  VerticalAlignment="Top" Width="120" Source="toilet.png" Margin="0,2,0,0"/>
+        <TextBlock Text="OpenPublicToilet" Margin="105,27,9,666" FontSize="48"/>
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar BackgroundColor="#FF309298" ForegroundColor="White" Opacity="0.4" Mode="Minimized">
