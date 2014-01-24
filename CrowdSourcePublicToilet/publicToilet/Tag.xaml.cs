@@ -24,7 +24,26 @@ namespace publicToilet
 
         private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
 
+
+
+        private async void RefreshMyList()
+        {
+            // This code refreshes the entries in the list view be querying the TodoItems table.
+            // The query excludes completed TodoItems
+            try
+            {
+                items = await todoTable
+                    .Where(todoItem => todoItem.Complete == false)
+                    .ToCollectionAsync();
+
         
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error loading items", MessageBoxButton.OK);
+            }
+
+        }
 
         // Constructor
         public MainPage()
@@ -73,7 +92,7 @@ namespace publicToilet
                 Geocoordinate coordinate = position.Coordinate;
                 lll = coordinate.Latitude.ToString();
                 loo = coordinate.Longitude.ToString();
-               
+                RefreshMyList();
             }
             catch (Exception ex)
             {
@@ -81,11 +100,94 @@ namespace publicToilet
             }
          
         }
+
+        bool babych= false;
+        bool dis = false;
+        bool fem = false;
+        bool mal= false;
+        bool unis= false;
+        bool payment = false;
+        bool wheel= false;
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
 
-           
-                var todoItem = new TodoItem {  Town= tbx_town.Text , Near_Famous = tbx_near.Text , Latitude = lll ,Longitude = loo  };
+            if (cx_babychange.IsChecked == true)
+            {
+                babych = true;
+            }
+            else 
+            {
+                babych = false;
+            }
+
+            if (cx_disables.IsChecked == true)
+            {
+                dis = true;
+            }
+            else
+            {
+                dis = false;
+            }
+
+            if (cx_female.IsChecked == true)
+            {
+                fem = true;
+            }
+            else
+            {
+                fem = false;
+            }
+
+
+            if (cx_male.IsChecked == true)
+            {
+                mal = true;
+            }
+            else
+            {
+                mal = false;
+            }
+
+
+            if (cx_unisex.IsChecked == true)
+            {
+                unis = true;
+            }
+            else
+            {
+                unis = false;
+            }
+
+
+            if (cx_payment.IsChecked == true)
+            {
+                payment = true;
+            }
+            else
+            {
+                payment = false;
+            }
+
+
+            if (cx_wheelchair.IsChecked == true)
+            {
+                wheel = true;
+            }
+            else
+            {
+                wheel = false;
+            }
+
+            if (lll== null) 
+            {
+                lll = "0.0";
+            }
+            if (loo == null)
+            {
+                loo = "0.0";
+            }
+
+                var todoItem = new TodoItem { Complete = false, Text = "toilet", Town= tbx_town.Text , Near_Famous = tbx_near.Text , Latitude = lll ,Longitude = loo, BabyChange = babych, Disables = dis , Female = fem , Male = mal , Payment = payment , Unisex = unis , WheelChair = wheel };
             InsertTodoItem(todoItem);
         
         }
