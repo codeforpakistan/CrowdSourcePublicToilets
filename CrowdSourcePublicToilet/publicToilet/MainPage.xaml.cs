@@ -511,6 +511,14 @@ namespace publicToilet
             task.Show();
         }
 
+        private void spam_menuItem_Click(object sender, RoutedEventArgs e)
+        {
+               TodoItem selectedItem = (sender as MenuItem).DataContext as TodoItem;
+
+               NavigationService.Navigate(new Uri("/Spam.xaml?" + "town=" + selectedItem.Town + "&asist=" + selectedItem.Near_Famous + "&lat=" + selectedItem.Latitude + "&lon=" + selectedItem.Longitude, UriKind.Relative));
+
+        }
+
        
     }
 }
