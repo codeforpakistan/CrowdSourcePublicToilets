@@ -1,0 +1,88 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="publicToilet.LandingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="ItemTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding Town}"/>
+                <CheckBox IsChecked="{Binding Property2, Mode=TwoWay}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="ItemTemplate1">
+            <StackPanel Width="443" Height="96" Margin="0,0,0,9" Background="#FF00080C">
+                <TextBlock Text="Lahore" Margin="97,34,0,-3" Foreground="#FF00C8DC"/>
+                <TextBlock Text="{Binding Near_Famous}" Margin="97,2,0,-6" Foreground="#FF878787"/>
+                <Image HorizontalAlignment="Left" Height="91" Width="92" Margin="0,-76,0,0" VerticalAlignment="Top" Source="toilet.png" Stretch="Fill"/>
+                <TextBlock Text="{Binding Town}" Margin="97,-96,0,65" FontSize="26.667"/>
+            </StackPanel>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <phone:Pivot Title="" Margin="0,92,0,0">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="near">
+                <Grid Height="518" VerticalAlignment="Top" Margin="0,0,0,-85">
+                    <ListBox x:Name="lala_NearList" HorizontalAlignment="Left" Height="456" ItemTemplate="{StaticResource ItemTemplate1}"  Margin="10,10,0,0" VerticalAlignment="Top" Width="446"/>
+                </Grid>
+            </phone:PivotItem>
+
+
+            <phone:PivotItem Header="search">
+                <Grid>
+                    <RadioButton x:Name="km5"  Content="5 km" Margin="0,67,316,393"/>
+                    <Image  HorizontalAlignment="Left" Height="78"  VerticalAlignment="Top" Width="81" Margin="8,4,0,0" Source="toilet.png"/>
+                    <Button Click="Unisex_Click" x:Name="Unisex" Content="Button" HorizontalAlignment="Left" Height="78" Margin="8,4,0,0" VerticalAlignment="Top" Width="81" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
+                    <Image  HorizontalAlignment="Left" Height="78"  VerticalAlignment="Top" Width="81" Margin="94,4,0,0" Source="wheel.png"/>
+                    <Button Click="disable_Click" x:Name="disable" Content="Button" HorizontalAlignment="Left" Height="78" Margin="94,4,0,0" VerticalAlignment="Top" Width="81" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
+                    <Image  HorizontalAlignment="Left" Height="78"  VerticalAlignment="Top" Width="81" Margin="180,4,0,0" Source="baby.png"/>
+                    <Button Click="Children_Click" x:Name="Children" Content="Button" HorizontalAlignment="Left" Height="78" Margin="180,4,0,0" VerticalAlignment="Top" Width="81" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
+                    <Image  HorizontalAlignment="Left" Height="78"  VerticalAlignment="Top" Width="81" Margin="266,4,0,0" Source="money.png"/>
+                    <Button Click="Money_Click" x:Name="Money" Content="Button" HorizontalAlignment="Left" Height="78" Margin="266,4,0,0" VerticalAlignment="Top" Width="81" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
+                    <Image  HorizontalAlignment="Left" Height="78"  VerticalAlignment="Top" Width="81" Margin="352,4,0,0" Source="parking.png"/>
+                    <Button Click="Parking_Click" x:Name="Parking" Content="Button" HorizontalAlignment="Left" Height="78" Margin="352,4,0,0" VerticalAlignment="Top" Width="81" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
+                    <RadioButton x:Name="km10" Content="10km" Margin="140,69,176,391"/>
+                    <RadioButton x:Name="all" Content="All" Margin="293,71,23,389"/>
+                    <ListBox x:Name="lala_GenericList" HorizontalAlignment="Left" Height="332" ItemTemplate="{StaticResource ItemTemplate1}" Margin="0,135,0,0" VerticalAlignment="Top" Width="456"/>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+
+
+
+        </phone:Pivot>
+        <Image  HorizontalAlignment="Left" Height="123"  VerticalAlignment="Top" Width="480" Source="cover.PNG" Stretch="UniformToFill"/>
+        <Rectangle HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="480" Opacity="0.845">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF073C47"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock HorizontalAlignment="Left" Height="36" TextWrapping="Wrap" Text="OpenPublicToilets - LHR" VerticalAlignment="Top" Width="318" Foreground="#FF35DDF7" FontFamily="Segoe WP Semibold" FontSize="24" Margin="4,0,0,0"/>
+
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar BackgroundColor="#FF309298" ForegroundColor="White" Opacity="0.4" Mode="Minimized">
+            <shell:ApplicationBarIconButton Click="ApplicationBarIconButton_Click" IconUri="/Assets/AppBar/favs.addto.png" Text="Tag"/>
+            <shell:ApplicationBarIconButton Click="ApplicationBarIconButton_Click_1" IconUri="/Assets/AppBar/refresh.png" Text="Refresh"/>
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>
