@@ -196,6 +196,7 @@ namespace publicToilet
 
                             }
                         }
+                        lala_GenericList.ItemsSource = Generic;
                     }
                 }
                 catch (Exception ex)
@@ -250,6 +251,7 @@ namespace publicToilet
 
                             }
                         }
+                        lala_GenericList.ItemsSource = Generic;
                     }
                 }
                 catch (Exception ex)
@@ -319,6 +321,7 @@ namespace publicToilet
 
                             }
                         }
+                        lala_GenericList.ItemsSource = Generic;
                     }
                 }
                 catch (Exception ex)
@@ -375,6 +378,7 @@ namespace publicToilet
 
                             }
                         }
+                        lala_GenericList.ItemsSource = Generic;
                     }
                 }
                 catch (Exception ex)
