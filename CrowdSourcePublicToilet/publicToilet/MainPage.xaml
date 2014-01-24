@@ -5,6 +5,8 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
    
     mc:Ignorable="d"
@@ -21,12 +23,23 @@
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="ItemTemplate1">
+           
             <StackPanel Width="443" Height="96" Margin="0,0,0,9" Background="#FF00080C">
                 <TextBlock Text="Lahore" Margin="97,34,0,-3" Foreground="#FF00C8DC"/>
                 <TextBlock Text="{Binding Near_Famous}" Margin="97,2,0,-6" Foreground="#FF878787"/>
                 <Image HorizontalAlignment="Left" Height="91" Width="92" Margin="0,-76,0,0" VerticalAlignment="Top" Source="toilet.png" Stretch="Fill"/>
                 <TextBlock Text="{Binding Town}" Margin="97,-96,0,65" FontSize="26.667"/>
+
+                <toolkit:ContextMenuService.ContextMenu>
+                    <toolkit:ContextMenu>
+                        <toolkit:MenuItem Header="SMS" x:Name="sms_menuItem" Click="sms_menuItem_Click"/>
+                        <toolkit:MenuItem Header="Email" x:Name="bing_menuItem" Click="bing_menuItem_Click"/>
+
+                    </toolkit:ContextMenu>
+                </toolkit:ContextMenuService.ContextMenu>
+
             </StackPanel>
+        
         </DataTemplate>
     </phone:PhoneApplicationPage.Resources>
 

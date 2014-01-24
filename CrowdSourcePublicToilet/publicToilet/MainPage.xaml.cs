@@ -451,8 +451,23 @@ namespace publicToilet
 
         private void sms_menuItem_Click(object sender, RoutedEventArgs e)
         {
+            TodoItem selectedItem = (sender as MenuItem).DataContext as TodoItem;
             SmsComposeTask smsComposeTask = new SmsComposeTask();
-           // smsComposeTask.Body = 
+            smsComposeTask.Body = selectedItem.Town + "\n" + selectedItem.Near_Famous + "\n" + selectedItem.Latitude + "\n" + selectedItem.Longitude+"\n\n"+"via OpenPublicToilets";
+            smsComposeTask.Show();
+
         }
+
+        private void bing_menuItem_Click(object sender, RoutedEventArgs e)
+        {
+               TodoItem selectedItem = (sender as MenuItem).DataContext as TodoItem;
+         
+            EmailComposeTask task = new EmailComposeTask();
+            task.Body = selectedItem.Town + "\n" + selectedItem.Near_Famous + "\n" + selectedItem.Latitude + "\n" + selectedItem.Longitude + "\n\n" + "via OpenPublicToilets";
+            task.Subject = "Hey I found a toilet";
+            task.Show();
+        }
+
+       
     }
 }
