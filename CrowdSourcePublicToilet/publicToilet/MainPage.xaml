@@ -5,7 +5,9 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    
+    xmlns:gmap="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"
+     xmlns:Controls="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
+   
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
    
@@ -23,7 +25,7 @@
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="ItemTemplate1">
-           
+
             <StackPanel Width="443" Height="96" Margin="0,0,0,9" Background="#FF00080C">
                 <TextBlock Text="Lahore" Margin="97,34,0,-3" Foreground="#FF00C8DC"/>
                 <TextBlock Text="{Binding Near_Famous}" Margin="97,2,0,-6" Foreground="#FF878787"/>
@@ -39,7 +41,7 @@
                 </toolkit:ContextMenuService.ContextMenu>
 
             </StackPanel>
-        
+
         </DataTemplate>
     </phone:PhoneApplicationPage.Resources>
 
@@ -57,7 +59,7 @@
 
             <phone:PivotItem Header="search">
                 <Grid>
-                    <RadioButton x:Name="km5"  Content="5 km" Margin="0,67,316,393"/>
+                    <RadioButton x:Name="km5"  Content="5 km" Margin="12,67,304,393"/>
                     <Image  HorizontalAlignment="Left" Height="78"  VerticalAlignment="Top" Width="81" Margin="8,4,0,0" Source="toilet.png"/>
                     <Button Click="Unisex_Click" x:Name="Unisex" Content="Button" HorizontalAlignment="Left" Height="78" Margin="8,4,0,0" VerticalAlignment="Top" Width="81" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
                     <Image  HorizontalAlignment="Left" Height="78"  VerticalAlignment="Top" Width="81" Margin="94,4,0,0" Source="wheel.png"/>
@@ -68,15 +70,19 @@
                     <Button Click="Money_Click" x:Name="Money" Content="Button" HorizontalAlignment="Left" Height="78" Margin="266,4,0,0" VerticalAlignment="Top" Width="81" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
                     <Image  HorizontalAlignment="Left" Height="78"  VerticalAlignment="Top" Width="81" Margin="352,4,0,0" Source="parking.png"/>
                     <Button Click="Parking_Click" x:Name="Parking" Content="Button" HorizontalAlignment="Left" Height="78" Margin="352,4,0,0" VerticalAlignment="Top" Width="81" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
-                    <RadioButton x:Name="km10" Content="10km" Margin="140,69,176,391"/>
-                    <RadioButton x:Name="all" Content="All" Margin="293,71,23,389"/>
+                    <RadioButton x:Name="km10" Content="10km" Margin="152,69,164,391"/>
+                    <RadioButton x:Name="all" Content="All" Margin="305,71,11,389"/>
                     <ListBox x:Name="lala_GenericList" HorizontalAlignment="Left" Height="332" ItemTemplate="{StaticResource ItemTemplate1}" Margin="0,135,0,0" VerticalAlignment="Top" Width="456"/>
                 </Grid>
             </phone:PivotItem>
 
             <!--Pivot item two-->
 
+            <phone:PivotItem Header="map">
+                <gmap:Map  x:Name="mapReal" >
+                </gmap:Map>
 
+            </phone:PivotItem>
 
         </phone:Pivot>
         <Image  HorizontalAlignment="Left" Height="123"  VerticalAlignment="Top" Width="480" Source="cover.PNG" Stretch="UniformToFill"/>

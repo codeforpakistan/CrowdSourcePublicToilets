@@ -12,6 +12,9 @@ using Windows.Devices.Geolocation;
 using System.Device.Location;
 using System.Collections.ObjectModel;
 using Microsoft.Phone.Tasks;
+using Microsoft.Phone.Controls.Maps.Platform;
+using Microsoft.Phone.Controls.Maps;
+using Microsoft.Phone.Maps.Controls;
 
 namespace publicToilet
 {
@@ -21,18 +24,51 @@ namespace publicToilet
         private MobileServiceCollection<TodoItem, TodoItem> Gen;
         private ObservableCollection<TodoItem> Nearitems = new ObservableCollection<TodoItem>();
         private ObservableCollection<TodoItem> Generic = new ObservableCollection<TodoItem>();
-        
+        private ObservableCollection<Map007> mapList = new ObservableCollection<Map007>();
         private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
 
 
         double d1;
         double d2;
+        double l;
+        double lo;
 
+        public void getMapsData() 
+        {
+
+            foreach (TodoItem item in items) 
+            {
+                if (item.Latitude == "") 
+                {
+                    l = 0.0;
+
+                }
+                else 
+                {
+                    l = Convert.ToDouble(item.Latitude);
+                }
+                if (item.Longitude == "")
+                {
+                    lo = 0.0;
+
+                }
+                else 
+                {
+                    lo = Convert.ToDouble(item.Longitude);
+                }
+
+                Pushpin pin1 = new Pushpin();
+                pin1.Location = new GeoCoordinate(l,lo);
+                pin1.Content = item.Town;
+                mapReal.Children.Add(pin1);
+            }
+             
+        }
         public LandingPage()
         {
             InitializeComponent();
+            
             getCords();
-           
            
         
         }
@@ -55,7 +91,14 @@ namespace publicToilet
                 lll = coordinate.Latitude.ToString();
                 loo = coordinate.Longitude.ToString();
                 string Location = "Latitude = " + coordinate.Latitude + " Longitude = " + coordinate.Longitude;
+                mapReal.ZoomLevel = 10;
+                mapReal.Center = new GeoCoordinate(Convert.ToDouble(lll), Convert.ToDouble(Convert.ToDouble(loo)));
+               
+                mapReal.ZoomBarVisibility = System.Windows.Visibility.Visible;
+               
                 RefreshMyList();
+                
+            
             }
             catch (Exception ex) 
             {
@@ -102,7 +145,7 @@ namespace publicToilet
                     
                     }
                 }
-            
+                getMapsData();            
             }
             catch (Exception ex)
             {
